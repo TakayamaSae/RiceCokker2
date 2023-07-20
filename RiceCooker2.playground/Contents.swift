@@ -1,7 +1,6 @@
-import Foundation // Timerクラスを使用するために必要なモジュール
-import PlaygroundSupport // Playground上でTimerクラスを機能させるために必要なモジュール
+import Foundation
+import PlaygroundSupport
 
-// デフォルトだとTimerクラスを継続的に処理させることが出来ないため、フラグを変更
 PlaygroundPage.current.needsIndefiniteExecution = true
 
 enum Minute: Int {
@@ -16,7 +15,7 @@ class Alarm {
     var limit: Minute = .whitericemode
     
     init() {
-        timer = Timer.scheduledTimer(timeInterval: 60,
+        timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
                                      selector: #selector(countup),
                                      userInfo: nil,
@@ -27,9 +26,10 @@ class Alarm {
     @objc func countup() {
         // countの値をインクリメントする
         count += 1
-        print("あと\(count)分で炊き上がります")
+        let minutes = limit.rawValue - count
+        print("あと\(minutes)分で炊き上がります")
         // countの値がlimitの値以上になったif文を実行
-        if limit.rawValue <= count {
+        if minutes == 0 {
             print("炊き上がりました！")
             // タイマーを止める
             timer?.invalidate()
@@ -38,4 +38,7 @@ class Alarm {
 }
 
 let alarm = Alarm()
-alarm.limit = .whitericemode
+let limit: Minute = .cakemode
+alarm.limit = limit
+print("\(limit.rawValue)分に設定されました。")
+
