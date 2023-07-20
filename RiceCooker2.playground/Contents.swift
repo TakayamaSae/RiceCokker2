@@ -5,8 +5,8 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 
 enum Minute: Int {
     case whiteRiceMode = 60
-    case brownricemode = 120
-    case cakemode = 40
+    case brownRiceMode = 120
+    case cakeMode = 40
 }
 
 class Alarm {
@@ -38,7 +38,7 @@ class Alarm {
 }
 
 let alarm = Alarm()
-let limit: Minute = .cakemode
+let limit: Minute = .cakeMode
 alarm.limit = limit
 print("\(limit.rawValue)分に設定されました。")
 
