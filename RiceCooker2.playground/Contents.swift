@@ -4,7 +4,7 @@ import PlaygroundSupport
 PlaygroundPage.current.needsIndefiniteExecution = true
 
 enum Minute: Int {
-    case whitericemode = 60
+    case whiteRiceMode = 60
     case brownricemode = 120
     case cakemode = 40
 }
@@ -12,7 +12,7 @@ enum Minute: Int {
 class Alarm {
     var timer: Timer?
     var count: Int = 0
-    var limit: Minute = .whitericemode
+    var limit: Minute = .whiteRiceMode
     
     init() {
         timer = Timer.scheduledTimer(timeInterval: 1,
