@@ -9,6 +9,15 @@ enum Minute: Int {
     case cakeMode = 40
 }
 
+func weight (num :Int) -> Bool {
+    if num < 1 {
+        return false
+        print("空焚きのため停止しました。")
+    }
+    
+    return true
+}
+
 class Alarm {
     var timer: Timer?
     var count: Int = 0
@@ -50,4 +59,3 @@ if let limit = limit {
     print("\(limit.rawValue)分に設定されました。")
 }
 alarm.limit = limit
-
